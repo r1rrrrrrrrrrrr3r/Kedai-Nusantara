@@ -9,31 +9,31 @@ const foods = [
     name: 'Kerak Telor',
     origin: 'Betawi, DKI Jakarta',
     image: require('../../../../assets/KerakTelor.png'),
-    desc: 'DescJawa' as keyof RootStackParamList,
+    desc: 'KerakTelor' as keyof RootStackParamList,
   },
   {
     name: 'Lumpia',
     origin: 'Semarang, Jawa Tengah',
     image: require('../../../../assets/Lumpia.png'),
-    desc: null,
+    desc: 'Lumpia' as keyof RootStackParamList,
   },
   {
     name: 'Asinan Bogor',
     origin: 'Bogor, Jawa Barat',
     image: require('../../../../assets/AsinanBogor.png'),
-    desc: null,
+    desc: 'AsinanBogor' as keyof RootStackParamList,
   },
   {
     name: 'Sate Maranggi',
     origin: 'Purwakarta, Jawa Barat',
     image: require('../../../../assets/SateMaranggi.png'),
-    desc: null,
+    desc: 'SateMaranggi' as keyof RootStackParamList,
   },
   {
     name: 'Rujak Cingur',
     origin: 'Surabaya, Jawa Timur',
     image: require('../../../../assets/RujakCingur.png'),
-    desc: null,
+    desc: 'RujakCingur' as keyof RootStackParamList,
   },
 ];
 
@@ -87,7 +87,7 @@ export default function Jawa() {
             <Wrapper
               key={food.name}
               style={styles.foodCard}
-              onPress={food.desc ? () => navigation.navigate(food.desc as keyof RootStackParamList) : undefined}
+              onPress={food.desc ? () => navigation.navigate(food.desc as never) : undefined}
             >
               <Image source={food.image} style={styles.foodImage} resizeMode="cover" />
               <Text style={styles.foodName}>{food.name}</Text>

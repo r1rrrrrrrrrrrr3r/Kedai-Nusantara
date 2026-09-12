@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../../../App';
+import { RootStackParamList } from '../../../../../App';
 
-export default function DescJawa() {
+export default function DescSumatera() {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   return (
@@ -12,54 +12,56 @@ export default function DescJawa() {
       <View style={styles.header}>
         <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
           <Image
-            source={require('../../../../assets/ArrowBlack.png')}
+            source={require('../../../../../assets/ArrowBlack.png')}
             style={styles.backArrowIcon}
             resizeMode="contain"
           />
         </TouchableOpacity>
         <TouchableOpacity style={styles.profileButton} onPress={() => navigation.navigate('Profile')}>
           <Image
-            source={require('../../../../assets/IconProfile.png')}
+            source={require('../../../../../assets/IconProfile.png')}
             style={styles.profileIcon}
             resizeMode="contain"
           />
         </TouchableOpacity>
       </View>
 
-      <Image source={require('../../../../assets/KerakTelor.png')} style={styles.heroImage} resizeMode="cover" />
+      <Image source={require('../../../../../assets/Rendang.png')} style={styles.heroImage} resizeMode="cover" />
 
       <View style={styles.content}>
-        <Text style={styles.title}>Kerak Telor</Text>
+        <Text style={styles.title}>Rendang</Text>
         <Text style={styles.originText}>
-          Asal daerah: <Text style={styles.originValue}>Betawi, DKI Jakarta</Text>
+          Asal daerah: <Text style={styles.originValue}>Minangkabau, Sumatera Barat</Text>
         </Text>
 
         <Text style={styles.sectionTitle}>Deskripsi</Text>
         <Text style={styles.paragraph}>
-          Kerak telor adalah salah satu kudapan khas Betawi yang terkenal karena cita rasa gurih manis yang menggugah selera. Bisa dibilang, kerak telor sendiri sama terkenalnya dengan beragam kuliner khas Betawi lain seperti selendang mayang, kue rangi, gabus pucung, semur jengkol, asinan betawi dan masih banyak lagi.
+          Rendang adalah salah satu masakan tradisional Minangkabau yang menggunakan daging dan santan kelapa sebagai bahan utama dengan kandungan bumbu yang kaya akan rempah-rempah.
         </Text>
         <Text style={styles.paragraph}>
-          Terbuat dari beras ketan dan telur bebek atau ayam, dimasak bersama dengan berbagai bumbu dan bahan seperti bawang merah cincang halus, udang kering, bawang goreng, lada putih, garam dan sebagainya.
+          Terbuat dari daging dan dimasak dalam suhu rendah selama berjam-jam dengan berbagai rempah-rempah dan santan. Proses memasak memakan waktu berjam-jam hingga yang tinggal hanyalah potongan daging berwarna hitam pekat dan dedak.
         </Text>
 
         <Text style={styles.sectionTitle}>Cara Memasak</Text>
         <View style={styles.bulletItem}>
           <Text style={styles.bulletDot}>•</Text>
-          <Text style={styles.bulletText}>
-            Kocok telur bebek, masukkan udang kering, bumbu yang dihaluskan, bawang goreng, dan kelapa sangrai. Aduk rata.
-          </Text>
+          <Text style={styles.bulletText}>Pertama-tama, tumis bumbu halus dan kelapa parut sangrai. Aduk rata.</Text>
         </View>
         <View style={styles.bulletItem}>
           <Text style={styles.bulletDot}>•</Text>
-          <Text style={styles.bulletText}>
-            Panaskan wajan dadar antilengket. Tuang setengah bagian ketan. Ratakan di permukaan wajan. Masak hingga setengah matang.
-          </Text>
+          <Text style={styles.bulletText}>Kemudian, masukkan daun salam, daun jeruk, daun kunyit, dan serai. Masak hingga wangi.</Text>
         </View>
         <View style={styles.bulletItem}>
           <Text style={styles.bulletDot}>•</Text>
-          <Text style={styles.bulletText}>
-            Tuang setengah bagian telur kocok berbumbu. Ratakan di seluruh permukaan sambil ditekan-tekan. Setelah bagian bawahnya matang, dapat dibalik agar matang merata. Angkat.
-          </Text>
+          <Text style={styles.bulletText}>Setelah itu, masukkan daging. Aduk rata.</Text>
+        </View>
+        <View style={styles.bulletItem}>
+          <Text style={styles.bulletDot}>•</Text>
+          <Text style={styles.bulletText}>Tuang santan. Aduk rata.</Text>
+        </View>
+        <View style={styles.bulletItem}>
+          <Text style={styles.bulletDot}>•</Text>
+          <Text style={styles.bulletText}>Masak rendang dengan api kecil hingga rendang mengering. Rendang daging sapi siap kamu sajikan untuk acara spesial.</Text>
         </View>
       </View>
     </ScrollView>

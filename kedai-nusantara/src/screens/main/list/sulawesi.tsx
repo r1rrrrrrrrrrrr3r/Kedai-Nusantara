@@ -9,31 +9,31 @@ const foods = [
     name: "Pa'Piong",
     origin: 'Toraja, Sulawesi Selatan',
     image: require('../../../../assets/PaPiong.png'),
-    desc: null,
+    desc: 'PaPiong' as keyof RootStackParamList,
   },
   {
     name: 'Bubur Manado',
     origin: 'Manado, Sulawesi Utara',
     image: require('../../../../assets/BuburManado.png'),
-    desc: 'DescSulawesi' as keyof RootStackParamList,
+    desc: 'BuburManado' as keyof RootStackParamList,
   },
   {
     name: 'Barongko',
     origin: 'Makassar, Sulawesi Selatan',
     image: require('../../../../assets/Barongko.png'),
-    desc: null,
+    desc: 'Barongko' as keyof RootStackParamList,
   },
   {
     name: 'Kue Cucur',
     origin: 'Mamuju, Sulawesi Barat',
     image: require('../../../../assets/KueCucur.png'),
-    desc: null,
+    desc: 'KueCucur' as keyof RootStackParamList,
   },
   {
     name: 'Luluta',
     origin: 'Kendari, Sulawesi Tenggara',
     image: require('../../../../assets/Luluta.png'),
-    desc: null,
+    desc: 'Luluta' as keyof RootStackParamList,
   },
 ];
 
@@ -87,7 +87,7 @@ export default function Sulawesi() {
             <Wrapper
               key={food.name}
               style={styles.foodCard}
-              onPress={food.desc ? () => navigation.navigate(food.desc as keyof RootStackParamList) : undefined}
+              onPress={food.desc ? () => navigation.navigate(food.desc as never) : undefined}
             >
               <Image source={food.image} style={styles.foodImage} resizeMode="cover" />
               <Text style={styles.foodName}>{food.name}</Text>

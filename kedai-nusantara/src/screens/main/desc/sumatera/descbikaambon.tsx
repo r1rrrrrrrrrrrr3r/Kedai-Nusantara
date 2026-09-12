@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../../../App';
+import { RootStackParamList } from '../../../../../App';
 
-export default function DescSulawesi() {
+export default function DescBikaAmbon() {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   return (
@@ -12,48 +12,60 @@ export default function DescSulawesi() {
       <View style={styles.header}>
         <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
           <Image
-            source={require('../../../../assets/ArrowBlack.png')}
+            source={require('../../../../../assets/ArrowBlack.png')}
             style={styles.backArrowIcon}
             resizeMode="contain"
           />
         </TouchableOpacity>
         <TouchableOpacity style={styles.profileButton} onPress={() => navigation.navigate('Profile')}>
           <Image
-            source={require('../../../../assets/IconProfile.png')}
+            source={require('../../../../../assets/IconProfile.png')}
             style={styles.profileIcon}
             resizeMode="contain"
           />
         </TouchableOpacity>
       </View>
 
-      <Image source={require('../../../../assets/BuburManado.png')} style={styles.heroImage} resizeMode="cover" />
+      <Image source={require('../../../../../assets/BikaAmbon.png')} style={styles.heroImage} resizeMode="cover" />
 
       <View style={styles.content}>
-        <Text style={styles.title}>Bubur Manado</Text>
+        <Text style={styles.title}>Bika Ambon</Text>
         <Text style={styles.originText}>
-          Asal daerah: <Text style={styles.originValue}>Manado, Sulawesi Utara</Text>
+          Asal daerah: <Text style={styles.originValue}>Medan, Sumatera Utara</Text>
         </Text>
 
         <Text style={styles.sectionTitle}>Deskripsi</Text>
         <Text style={styles.paragraph}>
-          Tinutuan atau juga dikenal sebagai Bubur Manado merupakan makanan tradisional dari daerah Sulawesi Utara, khususnya Manado dan Minahasa yang dapat dikembangkan untuk menjadi bagian penting dari wisata kuliner di daerah ini. Ada juga yang mengatakan tinutuan adalah makanan khas Minahasa, Sulawesi Utara.
+          Bika ambon adalah penganan manis khas Kota Medan dengan ciri khas tekstur kenyal dan rongga-rongga sarang semut yang berjejer rapi di bagian dalamnya. Kue ini dibuat dari campuran tepung tapioka, santan pekat, telur bebek atau ayam, dan air nira atau ragi alami.
         </Text>
         <Text style={styles.paragraph}>
-          Tinutuan merupakan campuran berbagai macam sayuran, tidak mengandung daging, sehingga makanan ini bisa menjadi makanan pergaulan antarkelompok masyarakat di Manado. Tinutuan biasanya disajikan untuk sarapan pagi beserta berbagai pelengkap hidangannya. Walaupun demikian, tinutuan umumnya tetap dapat ditemukan di berbagai rumah makan di luar waktu sarapan.
+          Rebusan santan dimasak bersama serai, daun jeruk purut, dan bubuk kunyit sehingga menghasilkan aroma sitrus yang harum serta warna kuning keemasan yang menggoda. Bagian bawah kue terpanggang kecokelatan dengan tekstur renyah tipis yang berpadu dengan kelembutan serat kuenya.
         </Text>
 
         <Text style={styles.sectionTitle}>Cara Memasak</Text>
         <View style={styles.bulletItem}>
           <Text style={styles.bulletDot}>•</Text>
-          <Text style={styles.bulletText}>Masak beras, air, serai, jahe, dan garam sampai matang dan mengental, jika kurang air tambahkan air panas.</Text>
+          <Text style={styles.bulletText}>
+            Rebus santan kental bersama daun jeruk purut, serai memar, dan sedikit kunyit bubuk hingga harum mendidih, lalu saring dan dinginkan.
+          </Text>
         </View>
         <View style={styles.bulletItem}>
           <Text style={styles.bulletDot}>•</Text>
-          <Text style={styles.bulletText}>Masukkan jagung, aduk, lalu masukkan ubi, daun melinjo, dan kacang panjang sampai ubi matang, terakhir masukkan bayam, kangkung, daun gedi, dan daun kemangi, aduk-aduk sampai matang.</Text>
+          <Text style={styles.bulletText}>
+            Buat adonan biang dari ragi instan, sedikit tepung terigu, gula pasir, dan air hangat, lalu diamkan selama 15 menit sampai mengembang berbuih.
+          </Text>
         </View>
         <View style={styles.bulletItem}>
           <Text style={styles.bulletDot}>•</Text>
-          <Text style={styles.bulletText}>Hidangkan selagi panas di dalam mangkuk dengan pelengkapnya.</Text>
+          <Text style={styles.bulletText}>
+            Kocok kuning telur bersama gula pasir hingga larut, masukkan tepung tapioka secara berselang-seling dengan santan hangat dan larutan biang sambil diaduk merata.
+          </Text>
+        </View>
+        <View style={styles.bulletItem}>
+          <Text style={styles.bulletDot}>•</Text>
+          <Text style={styles.bulletText}>
+            Fermentasikan adonan selama 2 hingga 3 jam, tuang ke loyang yang telah dipanaskan terlebih dahulu, lalu panggang dengan pintu oven sedikit terbuka hingga pori-pori sarangnya terbentuk sempurna sebelum menutup oven sampai permukaan matang.
+          </Text>
         </View>
       </View>
     </ScrollView>

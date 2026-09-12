@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../../../App';
+import { RootStackParamList } from '../../../../../App';
 
-export default function DescPapua() {
+export default function DescMartabakSagu() {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   return (
@@ -12,52 +12,60 @@ export default function DescPapua() {
       <View style={styles.header}>
         <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
           <Image
-            source={require('../../../../assets/ArrowBlack.png')}
+            source={require('../../../../../assets/ArrowBlack.png')}
             style={styles.backArrowIcon}
             resizeMode="contain"
           />
         </TouchableOpacity>
         <TouchableOpacity style={styles.profileButton} onPress={() => navigation.navigate('Profile')}>
           <Image
-            source={require('../../../../assets/IconProfile.png')}
+            source={require('../../../../../assets/IconProfile.png')}
             style={styles.profileIcon}
             resizeMode="contain"
           />
         </TouchableOpacity>
       </View>
 
-      <Image source={require('../../../../assets/KueLontar.png')} style={styles.heroImage} resizeMode="cover" />
+      <Image source={require('../../../../../assets/MartabakSagu.png')} style={styles.heroImage} resizeMode="cover" />
 
       <View style={styles.content}>
-        <Text style={styles.title}>Kue Lontar</Text>
+        <Text style={styles.title}>Martabak Sagu</Text>
         <Text style={styles.originText}>
-          Asal daerah: <Text style={styles.originValue}>Papua</Text>
+          Asal daerah: <Text style={styles.originValue}>Fak-Fak, Papua Barat</Text>
         </Text>
 
         <Text style={styles.sectionTitle}>Deskripsi</Text>
         <Text style={styles.paragraph}>
-          Kue lontar punya tekstur lembut di bagian dalam dan renyah pada kulit luarnya. Unsur susu menjadi faktor utama dari lembutnya rasa kue dan menambah kelezatannya.
+          Martabak sagu merupakan sajian manis tradisional khas Fakfak yang terbuat dari bahan sagu lempeng olahan yang dihaluskan bersama kelapa dan gula aren. Berbeda dengan martabak tepung terigu modern, kudapan ini memiliki aroma khas sagu bakar yang pekat.
         </Text>
         <Text style={styles.paragraph}>
-          Di Papua, kue lontar umumnya dibuat berukuran cukup besar dengan diameter bisa mencapai 20 sentimeter dan memerlukan sebuah cetakan kue khusus.
+          Rasanya mengutamakan perpaduan legitnya lelehan gula aren alami dengan gurihnya kelapa parut. Martabak ini sering dihidangkan sebagai teman kudapan saat menyambut tamu kehormatan atau acara tradisi keluarga di Fakfak.
         </Text>
 
         <Text style={styles.sectionTitle}>Cara Memasak</Text>
         <View style={styles.bulletItem}>
           <Text style={styles.bulletDot}>•</Text>
-          <Text style={styles.bulletText}>Uleni semua bahan kulit sampai kalis. Ambil adonan sedikit demi sedikit lalu masukkan dalam cetakan.</Text>
+          <Text style={styles.bulletText}>
+            Haluskan sagu lempeng yang sudah matang hingga menjadi butiran remah halus, lalu campur dengan sedikit air hangat dan garam.
+          </Text>
         </View>
         <View style={styles.bulletItem}>
           <Text style={styles.bulletDot}>•</Text>
-          <Text style={styles.bulletText}>Semua bahan isian dicampur dan diaduk rata. Tak perlu sampai berbuih. Saring beberapa kali supaya tidak bergerindil.</Text>
+          <Text style={styles.bulletText}>
+            Sisir halus gula merah aren dan campurkan dengan kelapa parut setengah tua yang telah diberi sejumput garam.
+          </Text>
         </View>
         <View style={styles.bulletItem}>
           <Text style={styles.bulletDot}>•</Text>
-          <Text style={styles.bulletText}>Tuang bahan isian ke dalam kulit.</Text>
+          <Text style={styles.bulletText}>
+            Panaskan wajan ceper datar dengan sedikit minyak kelapa, lalu ratakan lapisan adonan sagu tipis-tipis di permukaannya.
+          </Text>
         </View>
         <View style={styles.bulletItem}>
           <Text style={styles.bulletDot}>•</Text>
-          <Text style={styles.bulletText}>Panaskan oven. Panggang kue lontar sampai matang.</Text>
+          <Text style={styles.bulletText}>
+            Taburkan campuran gula aren dan kelapa di bagian tengah, lipat adonan menjadi setengah lingkaran atau gulungan rapat, lalu bolak-balik perlahan hingga matang kecokelatan sebelum diangkat.
+          </Text>
         </View>
       </View>
     </ScrollView>

@@ -132,7 +132,7 @@ export default function Home() {
             <TouchableOpacity
               key={region.name}
               style={styles.regionCardHalf}
-              onPress={() => navigation.navigate(region.name)}
+              onPress={() => navigation.navigate(region.name as never)}
             >
               <Image source={region.image} style={styles.regionImage} resizeMode="cover" />
               <Text style={styles.regionLabel}>{region.label}</Text>
@@ -157,7 +157,7 @@ export default function Home() {
             <View key={region.name} style={{ width: PAGE_WIDTH }}>
               <TouchableOpacity
                 style={styles.regionCardFull}
-                onPress={() => navigation.navigate(region.name)}
+                onPress={() => navigation.navigate(region.name as never)}
               >
                 <Image source={region.image} style={styles.regionImage} resizeMode="cover" />
                 <Text style={styles.regionLabel}>{region.label}</Text>

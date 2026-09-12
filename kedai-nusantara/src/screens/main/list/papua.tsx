@@ -9,31 +9,31 @@ const foods = [
     name: 'Papeda',
     origin: 'Papua Barat',
     image: require('../../../../assets/Papeda.png'),
-    desc: null,
+    desc: 'Papeda' as keyof RootStackParamList,
   },
   {
     name: 'Ikan Bakar Manokwari',
     origin: 'Manokwari, Papua Barat',
     image: require('../../../../assets/IkanBakarManokwari.png'),
-    desc: null,
+    desc: 'IkanBakarManokwari' as keyof RootStackParamList,
   },
   {
     name: 'Kue Bagea',
     origin: 'Papua Tengah',
     image: require('../../../../assets/KueBagea.png'),
-    desc: null,
+    desc: 'KueBagea' as keyof RootStackParamList,
   },
   {
     name: 'Kue Lontar',
     origin: 'Papua',
     image: require('../../../../assets/KueLontar.png'),
-    desc: 'DescPapua' as keyof RootStackParamList,
+    desc: 'KueLontar' as keyof RootStackParamList,
   },
   {
     name: 'Martabak Sagu',
     origin: 'Fak-Fak, Papua Barat',
     image: require('../../../../assets/MartabakSagu.png'),
-    desc: null,
+    desc: 'MartabakSagu' as keyof RootStackParamList,
   },
 ];
 
@@ -87,7 +87,7 @@ export default function Papua() {
             <Wrapper
               key={food.name}
               style={styles.foodCard}
-              onPress={food.desc ? () => navigation.navigate(food.desc as keyof RootStackParamList) : undefined}
+              onPress={food.desc ? () => navigation.navigate(food.desc as never) : undefined}
             >
               <Image source={food.image} style={styles.foodImage} resizeMode="cover" />
               <Text style={styles.foodName}>{food.name}</Text>

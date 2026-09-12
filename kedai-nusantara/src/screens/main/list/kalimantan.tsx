@@ -9,31 +9,31 @@ const foods = [
     name: 'Bubur Pedas Sambas',
     origin: 'Sambas, Kalimantan Barat',
     image: require('../../../../assets/BuburPedasSambas.png'),
-    desc: null,
+    desc: 'BuburPedas' as keyof RootStackParamList,
   },
   {
     name: 'Ketupat Kandangan',
     origin: 'Kandangan, Kalimantan Selatan',
     image: require('../../../../assets/KetupatKandangan.png'),
-    desc: null,
+    desc: 'KetupatKandangan' as keyof RootStackParamList,
   },
   {
     name: 'Ayam Cincane',
     origin: 'Samarinda, Kalimantan Timur',
     image: require('../../../../assets/AyamCincane.png'),
-    desc: 'DescKalimantan' as keyof RootStackParamList,
+    desc: 'AyamCincane' as keyof RootStackParamList,
   },
   {
     name: 'Nasi Bekepor',
     origin: 'Kutai, Kalimantan Timur',
     image: require('../../../../assets/NasiBekepor.png'),
-    desc: null,
+    desc: 'NasiBekepor' as keyof RootStackParamList,
   },
   {
     name: 'Pakasam',
     origin: 'Banjar, Kalimantan Selatan',
     image: require('../../../../assets/Pakasam.png'),
-    desc: null,
+    desc: 'Pakasam' as keyof RootStackParamList,
   },
 ];
 
@@ -87,7 +87,7 @@ export default function Kalimantan() {
             <Wrapper
               key={food.name}
               style={styles.foodCard}
-              onPress={food.desc ? () => navigation.navigate(food.desc as keyof RootStackParamList) : undefined}
+              onPress={food.desc ? () => navigation.navigate(food.desc as never) : undefined}
             >
               <Image source={food.image} style={styles.foodImage} resizeMode="cover" />
               <Text style={styles.foodName}>{food.name}</Text>

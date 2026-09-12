@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../../../App';
+import { RootStackParamList } from '../../../../../App';
 
-export default function DescKalimantan() {
+export default function DescPaPiong() {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   return (
@@ -12,52 +12,60 @@ export default function DescKalimantan() {
       <View style={styles.header}>
         <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
           <Image
-            source={require('../../../../assets/ArrowBlack.png')}
+            source={require('../../../../../assets/ArrowBlack.png')}
             style={styles.backArrowIcon}
             resizeMode="contain"
           />
         </TouchableOpacity>
         <TouchableOpacity style={styles.profileButton} onPress={() => navigation.navigate('Profile')}>
           <Image
-            source={require('../../../../assets/IconProfile.png')}
+            source={require('../../../../../assets/IconProfile.png')}
             style={styles.profileIcon}
             resizeMode="contain"
           />
         </TouchableOpacity>
       </View>
 
-      <Image source={require('../../../../assets/AyamCincane.png')} style={styles.heroImage} resizeMode="cover" />
+      <Image source={require('../../../../../assets/PaPiong.png')} style={styles.heroImage} resizeMode="cover" />
 
       <View style={styles.content}>
-        <Text style={styles.title}>Ayam Cincane</Text>
+        <Text style={styles.title}>Pa'Piong</Text>
         <Text style={styles.originText}>
-          Asal daerah: <Text style={styles.originValue}>Samarinda, Kalimantan Timur</Text>
+          Asal daerah: <Text style={styles.originValue}>Toraja, Sulawesi Selatan</Text>
         </Text>
 
         <Text style={styles.sectionTitle}>Deskripsi</Text>
         <Text style={styles.paragraph}>
-          Ayam Cincane adalah masakan khas Kalimantan Timur. Hidangan ini sering dijumpai pada acara-acara besar, seperti pesta pernikahan dan acara penyambutan tamu-tamu kehormatan. Selain itu, masakan ini juga dapat dijumpai di beberapa kedai ataupun rumah makan.
+          Pa'piong adalah hidangan khas masyarakat Toraja yang dimasak menggunakan batang bambu muda beraroma alami. Isiannya dapat berupa daging ayam, ikan mas, atau daging lainnya yang dipadukan dengan daun mayana atau batang pisang muda (burak).
         </Text>
         <Text style={styles.paragraph}>
-          Daging ayam kampung yang disajikan bersama bumbu berwarna kemerahan menjadi ciri khas tersendiri dari menu ayam cincane.
+          Bumbu yang digunakan menggunakan rempah asli perbukitan Toraja seperti cabai katokkon yang sangat pedas, jahe, serai, daun bawang, dan parutan kelapa sangrai. Proses pembakaran di atas bara api membuat sari daging dan bumbu meresap sempurna ke dalam serat bambu.
         </Text>
 
         <Text style={styles.sectionTitle}>Cara Memasak</Text>
         <View style={styles.bulletItem}>
           <Text style={styles.bulletDot}>•</Text>
-          <Text style={styles.bulletText}>Tumis bumbu halus hingga harum, tambahkan daun salam dan serai, masak hingga bumbu matang.</Text>
+          <Text style={styles.bulletText}>
+            Potong dadu daging pilihan, kemudian campur dengan bumbu halus berupa bawang merah, bawang putih, jahe, serai, cabai katokkon, dan garam.
+          </Text>
         </View>
         <View style={styles.bulletItem}>
           <Text style={styles.bulletDot}>•</Text>
-          <Text style={styles.bulletText}>Masukkan potongan ayam, aduk-aduk, masak hingga ayam berubah warna. Tambahkan jahe, lengkuas, gula merah, dan garam, aduk-aduk.</Text>
+          <Text style={styles.bulletText}>
+            Tambahkan irisan daun mayana atau batang pisang muda serta kelapa sangrai, lalu remas lembut hingga semua bumbu menyatu merata.
+          </Text>
         </View>
         <View style={styles.bulletItem}>
           <Text style={styles.bulletDot}>•</Text>
-          <Text style={styles.bulletText}>Tuangi santan, aduk perlahan, masak hingga santan habis atau mengering.</Text>
+          <Text style={styles.bulletText}>
+            Lapisi bagian dalam ruas bambu muda dengan daun pisang segar, lalu masukkan adonan daging berbumbu sampai terisi padat.
+          </Text>
         </View>
         <View style={styles.bulletItem}>
           <Text style={styles.bulletDot}>•</Text>
-          <Text style={styles.bulletText}>Panggang ayam di atas bara hingga matang kecokelatan. Bisa juga dipanggang di oven dengan suhu 180 derajat celsius selama 35 menit. Angkat dan sajikan.</Text>
+          <Text style={styles.bulletText}>
+            Panggang bambu di atas bara api terbuka dengan posisi miring sambil terus diputar berkala hingga bambu menghitam dan keluar aroma harum tanda daging sudah matang.
+          </Text>
         </View>
       </View>
     </ScrollView>

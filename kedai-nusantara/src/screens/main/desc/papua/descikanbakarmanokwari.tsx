@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../../../App';
+import { RootStackParamList } from '../../../../../App';
 
-export default function DescSumatera() {
+export default function DescIkanBakarManokwari() {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   return (
@@ -12,56 +12,60 @@ export default function DescSumatera() {
       <View style={styles.header}>
         <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
           <Image
-            source={require('../../../../assets/ArrowBlack.png')}
+            source={require('../../../../../assets/ArrowBlack.png')}
             style={styles.backArrowIcon}
             resizeMode="contain"
           />
         </TouchableOpacity>
         <TouchableOpacity style={styles.profileButton} onPress={() => navigation.navigate('Profile')}>
           <Image
-            source={require('../../../../assets/IconProfile.png')}
+            source={require('../../../../../assets/IconProfile.png')}
             style={styles.profileIcon}
             resizeMode="contain"
           />
         </TouchableOpacity>
       </View>
 
-      <Image source={require('../../../../assets/Rendang.png')} style={styles.heroImage} resizeMode="cover" />
+      <Image source={require('../../../../../assets/IkanBakarManokwari.png')} style={styles.heroImage} resizeMode="cover" />
 
       <View style={styles.content}>
-        <Text style={styles.title}>Rendang</Text>
+        <Text style={styles.title}>Ikan Bakar Manokwari</Text>
         <Text style={styles.originText}>
-          Asal daerah: <Text style={styles.originValue}>Minangkabau, Sumatera Barat</Text>
+          Asal daerah: <Text style={styles.originValue}>Manokwari, Papua Barat</Text>
         </Text>
 
         <Text style={styles.sectionTitle}>Deskripsi</Text>
         <Text style={styles.paragraph}>
-          Rendang adalah salah satu masakan tradisional Minangkabau yang menggunakan daging dan santan kelapa sebagai bahan utama dengan kandungan bumbu yang kaya akan rempah-rempah.
+          Ikan bakar manokwari menyajikan cita rasa khas pesisir Papua yang menitikberatkan pada kesegaran ikan laut seperti tongkol atau kakap. Keunikan hidangan ini terletak pada sambal mentah siram yang dilumatkan secara kasar tanpa dimasak.
         </Text>
         <Text style={styles.paragraph}>
-          Terbuat dari daging dan dimasak dalam suhu rendah selama berjam-jam dengan berbagai rempah-rempah dan santan. Proses memasak memakan waktu berjam-jam hingga yang tinggal hanyalah potongan daging berwarna hitam pekat dan dedak.
+          Sambal giling tersebut memadukan cabai rawit merah segar, bawang merah, garam, dan perasan jeruk nipis lokal dalam takaran banyak. Sensasi rasa pedas yang membakar dan keasaman sitrus yang tajam menembus daging ikan bakar yang gurih dan harum asap.
         </Text>
 
         <Text style={styles.sectionTitle}>Cara Memasak</Text>
         <View style={styles.bulletItem}>
           <Text style={styles.bulletDot}>•</Text>
-          <Text style={styles.bulletText}>Pertama-tama, tumis bumbu halus dan kelapa parut sangrai. Aduk rata.</Text>
+          <Text style={styles.bulletText}>
+            Bersihkan ikan tongkol segar, kerat bagian badannya, lalu lumuri dengan perasan air jeruk nipis dan garam secukupnya untuk menghilangkan aroma amis.
+          </Text>
         </View>
         <View style={styles.bulletItem}>
           <Text style={styles.bulletDot}>•</Text>
-          <Text style={styles.bulletText}>Kemudian, masukkan daun salam, daun jeruk, daun kunyit, dan serai. Masak hingga wangi.</Text>
+          <Text style={styles.bulletText}>
+            Panggang ikan di atas bara api arang batok kelapa sambil sesekali dibalik hingga matang kering di luar dan lembut di dalam.
+          </Text>
         </View>
         <View style={styles.bulletItem}>
           <Text style={styles.bulletDot}>•</Text>
-          <Text style={styles.bulletText}>Setelah itu, masukkan daging. Aduk rata.</Text>
+          <Text style={styles.bulletText}>
+            Ulek kasar cabai rawit merah, bawang merah, garam, dan sedikit penyedap rasa di atas cobek batu.
+          </Text>
         </View>
         <View style={styles.bulletItem}>
           <Text style={styles.bulletDot}>•</Text>
-          <Text style={styles.bulletText}>Tuang santan. Aduk rata.</Text>
-        </View>
-        <View style={styles.bulletItem}>
-          <Text style={styles.bulletDot}>•</Text>
-          <Text style={styles.bulletText}>Masak rendang dengan api kecil hingga rendang mengering. Rendang daging sapi siap kamu sajikan untuk acara spesial.</Text>
+          <Text style={styles.bulletText}>
+            Siramkan perasan jeruk nipis ke atas sambal kasar, lalu ratakan sambal mentah tersebut menutupi seluruh permukaan ikan bakar yang masih panas sebelum dihidangkan.
+          </Text>
         </View>
       </View>
     </ScrollView>

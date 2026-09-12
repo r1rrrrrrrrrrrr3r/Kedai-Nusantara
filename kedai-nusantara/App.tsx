@@ -18,11 +18,35 @@ import Papua from './src/screens/main/list/papua';
 import Sulawesi from './src/screens/main/list/sulawesi';
 import Sumatera from './src/screens/main/list/sumatera';
 
-import DescJawa from './src/screens/main/desc/descjawa';
-import DescKalimantan from './src/screens/main/desc/desckalimantan';
-import DescPapua from './src/screens/main/desc/descpapua';
-import DescSulawesi from './src/screens/main/desc/descsulawesi';
-import DescSumatera from './src/screens/main/desc/descsumatera';
+import KerakTelor from './src/screens/main/desc/jawa/desckeraktelor';
+import Lumpia from './src/screens/main/desc/jawa/desclumpia';
+import AsinanBogor from './src/screens/main/desc/jawa/descasinanbogor';
+import SateMaranggi from './src/screens/main/desc/jawa/descsatemaranggi';
+import RujakCingur from './src/screens/main/desc/jawa/descrujakcingur';
+
+import Rendang from './src/screens/main/desc/sumatera/descrendang';
+import BikaAmbon from './src/screens/main/desc/sumatera/descbikaambon';
+import GulaiBelanca from './src/screens/main/desc/sumatera/descgulaibelanca';
+import Pempek from './src/screens/main/desc/sumatera/descpempek';
+import MieAceh from './src/screens/main/desc/sumatera/descmieaceh';
+
+import BuburPedas from './src/screens/main/desc/kalimantan/descbuburpedas';
+import KetupatKandangan from './src/screens/main/desc/kalimantan/descketupatkandangan';
+import AyamCincane from './src/screens/main/desc/kalimantan/descayamcincane';
+import NasiBekepor from './src/screens/main/desc/kalimantan/descnasibekepor';
+import Pakasam from './src/screens/main/desc/kalimantan/descpakasam';
+
+import PaPiong from './src/screens/main/desc/sulawesi/descpapiong';
+import BuburManado from './src/screens/main/desc/sulawesi/descbuburmanado';
+import Barongko from './src/screens/main/desc/sulawesi/descbarongko';
+import KueCucur from './src/screens/main/desc/sulawesi/desckuecucur';
+import Luluta from './src/screens/main/desc/sulawesi/descluluta';
+
+import Papeda from './src/screens/main/desc/papua/descpapeda';
+import IkanBakarManokwari from './src/screens/main/desc/papua/descikanbakarmanokwari';
+import KueBagea from './src/screens/main/desc/papua/desckuebagea';
+import KueLontar from './src/screens/main/desc/papua/desckuelontar';
+import MartabakSagu from './src/screens/main/desc/papua/descmartabaksagu';
 
 export type RootStackParamList = {
   Start: undefined;
@@ -40,11 +64,35 @@ export type RootStackParamList = {
   Sulawesi: undefined;
   Sumatera: undefined;
 
-  DescJawa: undefined;
-  DescKalimantan: undefined;
-  DescPapua: undefined;
-  DescSulawesi: undefined;
-  DescSumatera: undefined;
+  KerakTelor: undefined;
+  Lumpia: undefined;
+  AsinanBogor: undefined;
+  SateMaranggi: undefined;
+  RujakCingur: undefined;
+
+  Rendang: undefined;
+  BikaAmbon: undefined;
+  GulaiBelanca: undefined;
+  Pempek: undefined;
+  MieAceh: undefined;
+
+  BuburPedas: undefined;
+  KetupatKandangan: undefined;
+  AyamCincane: undefined;
+  NasiBekepor: undefined;
+  Pakasam: undefined;
+
+  PaPiong: undefined;
+  BuburManado: undefined;
+  Barongko: undefined;
+  KueCucur: undefined;
+  Luluta: undefined;
+
+  Papeda: undefined;
+  IkanBakarManokwari: undefined;
+  KueBagea: undefined;
+  KueLontar: undefined;
+  MartabakSagu: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -68,11 +116,35 @@ export default function App() {
         <Stack.Screen name="Sulawesi" component={Sulawesi} />
         <Stack.Screen name="Sumatera" component={Sumatera} />
 
-        <Stack.Screen name="DescJawa" component={DescJawa} />
-        <Stack.Screen name="DescKalimantan" component={DescKalimantan} />
-        <Stack.Screen name="DescPapua" component={DescPapua} />
-        <Stack.Screen name="DescSulawesi" component={DescSulawesi} />
-        <Stack.Screen name="DescSumatera" component={DescSumatera} />
+        <Stack.Screen name="KerakTelor" component={KerakTelor} />
+        <Stack.Screen name="Lumpia" component={Lumpia} />
+        <Stack.Screen name="AsinanBogor" component={AsinanBogor} />
+        <Stack.Screen name="SateMaranggi" component={SateMaranggi} />
+        <Stack.Screen name="RujakCingur" component={RujakCingur} />
+
+        <Stack.Screen name="Rendang" component={Rendang} />
+        <Stack.Screen name="BikaAmbon" component={BikaAmbon} />
+        <Stack.Screen name="GulaiBelanca" component={GulaiBelanca} />
+        <Stack.Screen name="Pempek" component={Pempek} />
+        <Stack.Screen name="MieAceh" component={MieAceh} />
+
+        <Stack.Screen name="BuburPedas" component={BuburPedas} />
+        <Stack.Screen name="KetupatKandangan" component={KetupatKandangan} />
+        <Stack.Screen name="AyamCincane" component={AyamCincane} />
+        <Stack.Screen name="NasiBekepor" component={NasiBekepor} />
+        <Stack.Screen name="Pakasam" component={Pakasam} />
+
+        <Stack.Screen name="PaPiong" component={PaPiong} />
+        <Stack.Screen name="BuburManado" component={BuburManado} />
+        <Stack.Screen name="Barongko" component={Barongko} />
+        <Stack.Screen name="KueCucur" component={KueCucur} />
+        <Stack.Screen name="Luluta" component={Luluta} />
+
+        <Stack.Screen name="Papeda" component={Papeda} />
+        <Stack.Screen name="IkanBakarManokwari" component={IkanBakarManokwari} />
+        <Stack.Screen name="KueBagea" component={KueBagea} />
+        <Stack.Screen name="KueLontar" component={KueLontar} />
+        <Stack.Screen name="MartabakSagu" component={MartabakSagu} />
       </Stack.Navigator>
     </NavigationContainer>
   );
