@@ -14,6 +14,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../../App';
+import { useAuth } from '../auth/authcontext';
 
 const { width } = Dimensions.get('window');
 const PAGE_WIDTH = width - 32;
@@ -31,6 +32,7 @@ const bottomSliders: { name: keyof RootStackParamList; label: string; image: any
 
 export default function Home() {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const { currentUser } = useAuth();
   const [search, setSearch] = useState('');
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -84,7 +86,9 @@ export default function Home() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.welcomeText}>Welcome!</Text>
+        <Text style={styles.welcomeText} numberOfLines={1}>
+          Welcome, {currentUser?.name || 'User'}!
+        </Text>
         <TouchableOpacity
           style={styles.profileButton}
           onPress={() => navigation.navigate('Profile')}
@@ -196,6 +200,8 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   welcomeText: {
+    flex: 1,
+    marginRight: 10,
     fontSize: 20,
     fontWeight: 'bold',
     color: '#1A1A1A',
