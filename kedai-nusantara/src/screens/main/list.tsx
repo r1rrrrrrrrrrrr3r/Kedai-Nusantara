@@ -168,17 +168,29 @@ export default function List() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Text style={styles.backArrow}>←</Text>
+        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+          <Image
+            source={require('../../../assets/ArrowBlack.png')}
+            style={styles.backArrowIcon}
+            resizeMode="contain"
+          />
         </TouchableOpacity>
         <Text style={styles.title}>Semua</Text>
         <TouchableOpacity style={styles.profileButton} onPress={() => navigation.navigate('Profile')}>
-          <Image source={require('../../../assets/IconProfile.png')} style={styles.profileIcon} resizeMode="contain" />
+          <Image
+            source={require('../../../assets/IconProfile.png')}
+            style={styles.profileIcon}
+            resizeMode="contain"
+          />
         </TouchableOpacity>
       </View>
 
       <View style={styles.searchBar}>
-        <Image source={require('../../../assets/IconSearch.png')} style={styles.searchIcon} resizeMode="contain" />
+        <Image
+          source={require('../../../assets/IconSearch.png')}
+          style={styles.searchIcon}
+          resizeMode="contain"
+        />
         <TextInput
           style={styles.searchInput}
           value={search}
@@ -221,35 +233,44 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 16,
   },
-  backArrow: {
-    fontSize: 22,
-    color: '#1A1A1A',
+  backButton: {
+    width: 42,
+    height: 42,
+    borderRadius: 21,
+    backgroundColor: '#F0F0F0',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  backArrowIcon: {
+    width: 16,
+    height: 16,
   },
   title: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: 'bold',
-    color: '#7A1F1F',
+    color: '#1A1A1A',
+    textAlign: 'center',
   },
   profileButton: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
+    width: 42,
+    height: 42,
+    borderRadius: 21,
     backgroundColor: '#1A1A1A',
     justifyContent: 'center',
     alignItems: 'center',
   },
   profileIcon: {
-    width: 18,
-    height: 18,
+    width: 66,
+    height: 66,
     tintColor: '#FFFFFF',
   },
   searchBar: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#F0F0F0',
-    borderRadius: 10,
+    borderRadius: 30,
     paddingHorizontal: 12,
-    paddingVertical: 8,
+    paddingVertical: 2,
     marginBottom: 16,
   },
   searchIcon: {
