@@ -37,7 +37,7 @@ export default function Start() {
         <View style={styles.circle}>
           <Image source={require('../../../assets/LogoAD.png')} style={styles.logo} resizeMode="contain" />
         </View>
-        <Text style={styles.text}>KELOMPOK 7</Text>
+        <Text style={styles.text}>AD PRODUCTION</Text>
       </View>
 
       <Animated.View style={[styles.fullScreenBlack, { opacity: fadeBlack }]} />

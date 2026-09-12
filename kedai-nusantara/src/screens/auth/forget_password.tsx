@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../../App';
@@ -13,57 +13,60 @@ export default function ForgetPassword() {
   return (
     <View style={styles.container}>
       <Image source={require('../../../assets/BgAuth.png')} style={styles.background} resizeMode="cover" />
-      <View style={styles.overlay} />
 
-      <View style={styles.logoWrapper}>
-        <View style={styles.logoCircle}>
-          <Image source={require('../../../assets/LogoKedaiNusantara.png')} style={styles.logo} resizeMode="contain" />
-        </View>
-      </View>
+      <KeyboardAvoidingView style={styles.flex} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+        <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
+          <View style={styles.logoWrapper} pointerEvents="none">
+            <View style={styles.logoCircle}>
+              <Image source={require('../../../assets/LogoKedaiNusantara.png')} style={styles.logo} resizeMode="contain" />
+            </View>
+          </View>
 
-      <View style={styles.card}>
-        <View style={styles.headerRow}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Text style={styles.backArrow}>←</Text>
-          </TouchableOpacity>
-          <Text style={styles.title}>Forget Password</Text>
-        </View>
+          <View style={styles.card}>
+            <View style={styles.headerRow}>
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Image source={require('../../../assets/ArrowWhite.png')} style={styles.backArrow} resizeMode="contain" />
+              </TouchableOpacity>
+              <Text style={styles.title}>Forget Password</Text>
+            </View>
 
-        <Text style={styles.label}>Email Adress</Text>
-        <TextInput
-          style={styles.input}
-          value={email}
-          onChangeText={setEmail}
-          placeholder=""
-          placeholderTextColor="#FFFFFF"
-          keyboardType="email-address"
-          autoCapitalize="none"
-        />
+            <Text style={styles.label}>Email Adress</Text>
+            <TextInput
+              style={styles.input}
+              value={email}
+              onChangeText={setEmail}
+              placeholder=""
+              placeholderTextColor="#FFFFFF"
+              keyboardType="email-address"
+              autoCapitalize="none"
+            />
 
-        <Text style={styles.label}>New Password</Text>
-        <TextInput
-          style={styles.input}
-          value={newPassword}
-          onChangeText={setNewPassword}
-          placeholder=""
-          placeholderTextColor="#FFFFFF"
-          secureTextEntry
-        />
+            <Text style={styles.label}>New Password</Text>
+            <TextInput
+              style={styles.input}
+              value={newPassword}
+              onChangeText={setNewPassword}
+              placeholder=""
+              placeholderTextColor="#FFFFFF"
+              secureTextEntry
+            />
 
-        <Text style={styles.label}>Confirm Password</Text>
-        <TextInput
-          style={styles.input}
-          value={confirmPassword}
-          onChangeText={setConfirmPassword}
-          placeholder=""
-          placeholderTextColor="#FFFFFF"
-          secureTextEntry
-        />
+            <Text style={styles.label}>Confirm Password</Text>
+            <TextInput
+              style={styles.input}
+              value={confirmPassword}
+              onChangeText={setConfirmPassword}
+              placeholder=""
+              placeholderTextColor="#FFFFFF"
+              secureTextEntry
+            />
 
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
-          <Text style={styles.buttonText}>Reset Password</Text>
-        </TouchableOpacity>
-      </View>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
+              <Text style={styles.buttonText}>Reset Password</Text>
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
     </View>
   );
 }
@@ -72,18 +75,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  flex: {
+    flex: 1,
+  },
   background: {
     ...StyleSheet.absoluteFill,
     width: '100%',
     height: '100%',
   },
-  overlay: {
-    ...StyleSheet.absoluteFill,
-    backgroundColor: 'rgba(0, 0, 0, 0.15)',
+  scrollContent: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    paddingVertical: 40,
   },
   logoWrapper: {
     alignItems: 'center',
-    marginTop: 40,
+    zIndex: 2,
   },
   logoCircle: {
     width: 140,
@@ -103,13 +110,13 @@ const styles = StyleSheet.create({
     height: 100,
   },
   card: {
-    flex: 1,
     marginTop: -60,
+    marginHorizontal: 20,
     backgroundColor: 'rgba(0, 0, 0, 0.55)',
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
+    borderRadius: 24,
     paddingHorizontal: 24,
-    paddingTop: 32,
+    paddingTop: 72,
+    paddingBottom: 24,
   },
   headerRow: {
     flexDirection: 'row',
@@ -117,8 +124,8 @@ const styles = StyleSheet.create({
     marginBottom: 32,
   },
   backArrow: {
-    color: '#FFFFFF',
-    fontSize: 22,
+    width: 26,
+    height: 26,
     marginRight: 16,
   },
   title: {
