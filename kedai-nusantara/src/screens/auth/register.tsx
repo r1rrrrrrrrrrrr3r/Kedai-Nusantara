@@ -1,14 +1,41 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, ScrollView, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../../App';
+import { useAuth } from './authcontext';
 
 export default function Register() {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const { register } = useAuth();
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const isValidGmail = (value: string) => {
+    const cleaned = value.trim().toLowerCase();
+    return cleaned.endsWith('@gmail.com') && cleaned.indexOf('@') > 0;
+  };
+
+  const handleRegister = () => {
+    if (!name.trim() || !email.trim() || !password.trim()) {
+      Alert.alert('Error', 'Please fill out all fields.');
+      return;
+    }
+
+    if (!isValidGmail(email)) {
+      Alert.alert('Invalid Email', 'Please use a valid email ending with @gmail.com');
+      return;
+    }
+
+    const result = register({ name: name.trim(), email: email.trim(), password: password.trim() });
+    Alert.alert(result.success ? 'Success' : 'Error', result.message);
+
+    if (result.success) {
+      navigation.navigate('Login');
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -30,7 +57,6 @@ export default function Register() {
               style={styles.input}
               value={name}
               onChangeText={setName}
-              placeholder=""
               placeholderTextColor="#FFFFFF"
             />
 
@@ -39,7 +65,6 @@ export default function Register() {
               style={styles.input}
               value={email}
               onChangeText={setEmail}
-              placeholder=""
               placeholderTextColor="#FFFFFF"
               keyboardType="email-address"
               autoCapitalize="none"
@@ -50,7 +75,6 @@ export default function Register() {
               style={styles.input}
               value={password}
               onChangeText={setPassword}
-              placeholder=""
               placeholderTextColor="#FFFFFF"
               secureTextEntry
             />
@@ -59,8 +83,8 @@ export default function Register() {
               <Text style={styles.linkText}>Already have an account?</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
-              <Text style={styles.buttonText}>Sign In</Text>
+            <TouchableOpacity style={styles.button} onPress={handleRegister}>
+              <Text style={styles.buttonText}>Sign Up</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>

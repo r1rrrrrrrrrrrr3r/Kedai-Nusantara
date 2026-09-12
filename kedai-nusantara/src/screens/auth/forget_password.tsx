@@ -1,14 +1,46 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, ScrollView, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../../App';
+import { useAuth } from './authcontext';
 
 export default function ForgetPassword() {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const { resetPassword } = useAuth();
+
   const [email, setEmail] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
+  const isValidGmail = (value: string) => {
+    const cleaned = value.trim().toLowerCase();
+    return cleaned.endsWith('@gmail.com') && cleaned.indexOf('@') > 0;
+  };
+
+  const handleResetPassword = () => {
+    if (!email.trim() || !newPassword.trim() || !confirmPassword.trim()) {
+      Alert.alert('Error', 'Please fill out all fields.');
+      return;
+    }
+
+    if (!isValidGmail(email)) {
+      Alert.alert('Invalid Email', 'Please use a valid email ending with @gmail.com');
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      Alert.alert('Error', 'Passwords do not match.');
+      return;
+    }
+
+    const result = resetPassword(email.trim(), newPassword.trim());
+    Alert.alert(result.success ? 'Success' : 'Error', result.message);
+
+    if (result.success) {
+      navigation.navigate('Login');
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -30,12 +62,11 @@ export default function ForgetPassword() {
               <Text style={styles.title}>Forget Password</Text>
             </View>
 
-            <Text style={styles.label}>Email Adress</Text>
+            <Text style={styles.label}>Email Address</Text>
             <TextInput
               style={styles.input}
               value={email}
               onChangeText={setEmail}
-              placeholder=""
               placeholderTextColor="#FFFFFF"
               keyboardType="email-address"
               autoCapitalize="none"
@@ -46,7 +77,6 @@ export default function ForgetPassword() {
               style={styles.input}
               value={newPassword}
               onChangeText={setNewPassword}
-              placeholder=""
               placeholderTextColor="#FFFFFF"
               secureTextEntry
             />
@@ -56,12 +86,11 @@ export default function ForgetPassword() {
               style={styles.input}
               value={confirmPassword}
               onChangeText={setConfirmPassword}
-              placeholder=""
               placeholderTextColor="#FFFFFF"
               secureTextEntry
             />
 
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
+            <TouchableOpacity style={styles.button} onPress={handleResetPassword}>
               <Text style={styles.buttonText}>Reset Password</Text>
             </TouchableOpacity>
           </View>

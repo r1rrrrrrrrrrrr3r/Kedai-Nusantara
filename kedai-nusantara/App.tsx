@@ -2,6 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import { AuthProvider } from './src/screens/auth/authcontext';
 import Start from './src/screens/auth/start';
 import Login from './src/screens/auth/login';
 import Register from './src/screens/auth/register';

@@ -1,11 +1,13 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, TextInput } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../../App';
+import { useAuth } from '../auth/authcontext';
 
 export default function Profile() {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const { currentUser, updatePhoneNumber } = useAuth();
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
@@ -35,18 +37,23 @@ export default function Profile() {
       <View style={styles.content}>
         <Text style={styles.label}>Nama</Text>
         <View style={styles.fieldBox}>
-          <Text style={styles.fieldValue}>Budi</Text>
+          <Text style={styles.fieldValue}>{currentUser?.name || '-'}</Text>
         </View>
 
         <Text style={styles.label}>Email</Text>
         <View style={styles.fieldBox}>
-          <Text style={styles.fieldValue}>budikedainusantara@gmail.com</Text>
+          <Text style={styles.fieldValue}>{currentUser?.email || '-'}</Text>
         </View>
 
         <Text style={styles.label}>Nomor Telepon</Text>
-        <View style={styles.fieldBox}>
-          <Text style={styles.fieldValue}>08123456789</Text>
-        </View>
+        <TextInput
+          style={[styles.fieldBox, styles.inputField]}
+          value={currentUser?.phone || ''}
+          onChangeText={updatePhoneNumber}
+          placeholder="add your phone number"
+          placeholderTextColor="#888888"
+          keyboardType="phone-pad"
+        />
       </View>
     </ScrollView>
   );
@@ -64,7 +71,7 @@ const styles = StyleSheet.create({
   },
   headerImage: {
     width: '100%',
-    height: '100%',
+    height: 100,
   },
   backButton: {
     position: 'absolute',
@@ -130,6 +137,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#FAFAFA',
   },
   fieldValue: {
+    fontSize: 15,
+    color: '#1A1A1A',
+  },
+  inputField: {
     fontSize: 15,
     color: '#1A1A1A',
   },

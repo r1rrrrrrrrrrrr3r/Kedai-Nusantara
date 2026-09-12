@@ -1,14 +1,40 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, ScrollView, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../../App';
+import { useAuth } from './authcontext';
 
 export default function Login() {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-  const [name, setName] = useState('');
+  const { login } = useAuth();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const isValidGmail = (value: string) => {
+    const cleaned = value.trim().toLowerCase();
+    return cleaned.endsWith('@gmail.com') && cleaned.indexOf('@') > 0;
+  };
+
+  const handleLogin = () => {
+    if (!email.trim() || !password.trim()) {
+      Alert.alert('Error', 'Please enter your email and password.');
+      return;
+    }
+
+    if (!isValidGmail(email)) {
+      Alert.alert('Invalid Email', 'Please use a valid email ending with @gmail.com');
+      return;
+    }
+
+    const result = login(email.trim(), password.trim());
+    if (result.success) {
+      navigation.navigate('Home');
+    } else {
+      Alert.alert('Login Failed', result.message);
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -25,21 +51,11 @@ export default function Login() {
           <View style={styles.card}>
             <Text style={styles.title}>Login</Text>
 
-            <Text style={styles.label}>Name</Text>
-            <TextInput
-              style={styles.input}
-              value={name}
-              onChangeText={setName}
-              placeholder=""
-              placeholderTextColor="#FFFFFF"
-            />
-
             <Text style={styles.label}>Email address</Text>
             <TextInput
               style={styles.input}
               value={email}
               onChangeText={setEmail}
-              placeholder=""
               placeholderTextColor="#FFFFFF"
               keyboardType="email-address"
               autoCapitalize="none"
@@ -50,7 +66,6 @@ export default function Login() {
               style={styles.input}
               value={password}
               onChangeText={setPassword}
-              placeholder=""
               placeholderTextColor="#FFFFFF"
               secureTextEntry
             />
@@ -64,7 +79,7 @@ export default function Login() {
               </TouchableOpacity>
             </View>
 
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
+            <TouchableOpacity style={styles.button} onPress={handleLogin}>
               <Text style={styles.buttonText}>Sign In</Text>
             </TouchableOpacity>
           </View>
