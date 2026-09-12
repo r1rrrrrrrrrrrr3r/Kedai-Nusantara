@@ -211,8 +211,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   profileIcon: {
-    width: 56,
-    height: 56,
+    width: 66,
+    height: 66,
     tintColor: '#FFFFFF',
   },
   searchBar: {

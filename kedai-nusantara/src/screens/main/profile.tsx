@@ -10,13 +10,25 @@ export default function Profile() {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <View style={styles.headerImageWrapper}>
-        <Image source={require('../../../assets/ProfileHeader.png')} style={styles.headerImage} resizeMode="cover" />
+        <Image
+          source={require('../../../assets/ProfileHeader.png')}
+          style={styles.headerImage}
+          resizeMode="cover"
+        />
         <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-          <Text style={styles.backArrow}>←</Text>
+          <Image
+            source={require('../../../assets/ArrowBlack.png')}
+            style={styles.backArrowIcon}
+            resizeMode="contain"
+          />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Profile</Text>
         <View style={styles.avatarWrapper}>
-          <Image source={require('../../../assets/AvatarDefault.png')} style={styles.avatar} resizeMode="cover" />
+          <Image
+            source={require('../../../assets/AvatarDefault.png')}
+            style={styles.avatar}
+            resizeMode="cover"
+          />
         </View>
       </View>
 
@@ -56,18 +68,18 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: 'absolute',
-    top: 16,
+    top: 32,
     left: 16,
-    width: 32,
-    height: 32,
-    borderRadius: 16,
+    width: 42,
+    height: 42,
+    borderRadius: 32,
     backgroundColor: 'rgba(255, 255, 255, 0.85)',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  backArrow: {
-    fontSize: 20,
-    color: '#1A1A1A',
+  backArrowIcon: {
+    width: 16,
+    height: 16,
   },
   headerTitle: {
     position: 'absolute',

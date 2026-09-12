@@ -124,8 +124,8 @@ const styles = StyleSheet.create({
     marginBottom: 32,
   },
   backArrow: {
-    width: 26,
-    height: 26,
+    width: 19,
+    height: 19,
     marginRight: 16,
   },
   title: {
