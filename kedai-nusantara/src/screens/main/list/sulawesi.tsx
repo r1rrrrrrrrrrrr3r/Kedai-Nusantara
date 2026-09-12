@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
   },
   foodImage: {
     width: '100%',
-    height: 160,
+    height: 190,
     borderRadius: 12,
     marginBottom: 8,
   },
